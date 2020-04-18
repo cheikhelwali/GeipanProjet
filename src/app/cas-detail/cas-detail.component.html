@@ -1,0 +1,36 @@
+<table class="table table-striped  shadow-lg">
+  <tr>
+    <th>Conclusion du cas</th>
+    <th>Zone géographique</th>
+    <th>Date du cas</th>
+  </tr>
+  <tr *ngFor="let cas of casDetail, let i = index " >
+    <td>{{cas.cas_resume_web}}</td>
+    <td>{{cas.cas_zone_nom}}</td>
+    <td>{{cas.cas_JJ}}/{{cas.cas_MM}}/{{cas.cas_AAAA}}</td>
+</tr>
+</table>
+
+
+<table class="table table-striped  shadow-lg">
+  <tr>
+    <th>témoignage n°</th>
+    <th>Résumé de témoignage</th>
+    <th>Num etude</th>
+    <th>Date d'observation</th>
+    <th>Témoin age</th>
+    <th>Témoin sexe</th>
+    <th>Témoin job</th>
+  </tr>
+
+  <tr *ngFor="let temoignage of temoignageCas, let i = index " >
+    <td>{{i+1}}</td>
+    <td>{{temoignage.tem_resume}}</td>
+    <td>{{temoignage.tem_nom_dossier}}</td>
+    <td>{{temoignage.obs_date_heure}}</td>
+    <td>{{temoignage.tem_age}}</td>
+    <td>{{temoignage.tem_genre}}</td>
+    <td>{{temoignage.tem_xp_activite_type}}</td>
+  </tr>
+</table>
+<button type="button" class="btn btn-info" (click)="backHome()">Home</button>

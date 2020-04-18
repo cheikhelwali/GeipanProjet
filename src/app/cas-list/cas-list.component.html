@@ -1,0 +1,33 @@
+<p class="blockquote text-center">
+   Le GEIPAN met les informations qu’il rassemble à la disposition de la communauté scientifique et, évidemment, du grand public. <br/>
+Vous pouvez faire une recherche des cas ci-dessous:
+</p>
+
+<h2></h2>
+
+<div class="">
+  <b>Rechercher</b> : <input type="text"  placeholder="IdCas|Nom|etc.." [(ngModel)]="caseInfo">
+</div>
+<table class="table table-striped  shadow-lg">
+  <tr>
+    <th>Identifiant du cas</th>
+    <th>Nom du cas</th>
+    <th>Résumé du cas</th>
+    <th>Département</th>
+    <th>Classement</th>
+    <th>Màj</th>
+    <td>Action</td>
+  </tr>
+
+  <tr *ngFor="let cas of cases | filter : caseInfo | paginate: { itemsPerPage: 7, currentPage: p}, let i = index " >
+    <td>{{cas.id_cas}}</td>
+    <td>{{cas.cas_nom_dossier}}</td>
+    <td>{{cas.cas_resume_web}}</td>
+    <td>{{cas.cas_zone_type}}</td>
+    <td>{{cas.cas_classification}}</td>
+    <td>{{cas.cas_date_maj}}</td>
+    <td><button type="button" class="btn btn-primary" (click)=" viewCaseDetail(cas.id_cas)"><i class="far fa-trash-alt"></i>Detail</button></td>
+  </tr>
+
+</table>
+<pagination-controls (pageChange)="p=$event"></pagination-controls>
